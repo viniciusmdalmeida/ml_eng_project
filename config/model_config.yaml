@@ -1,0 +1,41 @@
+experiment_name: Test_model
+
+models:
+  KNN_2:
+    class: MLPClassifier
+    params:
+      max_iter: 10000
+
+  KNN:
+    class: KNeighborsClassifier
+    params:
+      p: 3
+      weights: distance
+
+  RandomForest:
+    class:  RandomForestClassifier
+    params: {}
+
+  Tree:
+    class: DecisionTreeClassifier
+    params: { }
+
+  naive:
+    class: GaussianNB
+    paramns: {}
+
+test:
+  func: cross_validate
+  op: mean
+  cv: 2
+  scoring:
+  - r2
+  - neg_mean_absolute_error
+  - neg_mean_squared_error
+
+save:
+  path: $PROJECT_PATH/data
+  type: mean
+  save_func: 
+    - save_mlflow
+    - save_csv

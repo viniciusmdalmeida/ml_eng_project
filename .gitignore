@@ -1,0 +1,9 @@
+config/airflow/logs/*
+data/logs/*
+notebooks/.ipynb_checkpoints
+env/*
+data/raw/*
+data/silver/*
+data/master/*
+
+data/raw/creditcard.csv

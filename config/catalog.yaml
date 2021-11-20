@@ -1,0 +1,11 @@
+creditcard:
+  type: csv
+  location: data/raw
+
+creditcard_silver:
+  type: csv
+  location: data/silver
+
+master_table:
+  type: csv
+  location: data/master

@@ -1,0 +1,26 @@
+connection:
+  database: ml_eng_project
+  driver: postgresql+psycopg2
+  host: localhost
+  password: postgres
+  port: 5432
+  user: postgres
+
+connection_type: local
+
+tables:
+  - creditcard
+
+list_dataframes:
+  - creditcard_silver
+
+prep_data:
+  func: prep_data
+
+master_table_func: create_master
+
+split_data:
+  func: split_data
+  percent_sample: 0.0001
+  percent_train: 0.75
+  y: 'Class'
