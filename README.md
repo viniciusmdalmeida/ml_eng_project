@@ -14,12 +14,12 @@
 ### How to start airflow
 1. **Set AIRFLOW_HOME**
 
-    $ export AIRFLOW_HOME= {actual-path}/config/airflow
+   $ export PROJECT_PATH={actual-path}
 
-    $ export PROJECT_PATH= {actual-path}/src
+   $ export AIRFLOW_HOME=$PROJECT_PATH/config/airflow
 
 
-2. **Start database (Optional)**
+3. **Start database (Optional)**
 
     $ airflow initdb 
 
@@ -36,7 +36,7 @@
 
 5. **Run dag**
 
-   $  airflow backfill dataops -s 2020-06-12
+   $  airflow backfill dag_exp -s {TAG}
 
 ### How to see mlflow server
 1. **Go to mlflow path**

@@ -4,6 +4,7 @@ import pandas as pd
 #mlflow
 import mlflow
 import mlflow.sklearn
+import os
 
 import sys
 
@@ -17,6 +18,7 @@ def save_csv(model,result,config_model,model_name):
         out_list = []
         for result in result: 
             out_list.append(result)
+        print("out_list:",out_list)
         output_table = pd.DataFrame(out_list,index=config_model["models"].keys())
     #save table
     time_stamp_id = str(int(datetime.now().timestamp()))[-5:]
@@ -31,8 +33,9 @@ def save_csv(model,result,config_model,model_name):
 
 def save_mlflow(model,result,config_model,model_name):
     print("Salvando dados no mlflow")
+    project_path = os.environ['PROJECT_PATH']
     data_path = config_model['save']['path']
-    mlflow.set_tracking_uri(data_path+'/mlruns')
+    mlflow.set_tracking_uri(project_path + data_path+'/mlruns')
     #Salvando dados no mlflow
     experiment_id = mlflow.set_experiment(config_model['experiment_name']) 
     run_name = model_name
@@ -47,5 +50,5 @@ def save_mlflow(model,result,config_model,model_name):
     mlflow.set_tag('type',model.__class__.__name__)
     print(sys.path)
     mlflow.sklearn.save_model(model,f"{data_path}/model/{str(model_id)}")
-    mlflow.sklearn.log_model(model)
+    mlflow.sklearn.log_model(model,f"{data_path}/model/{str(model_id)}")
     mlflow.end_run()    

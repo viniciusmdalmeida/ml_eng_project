@@ -119,13 +119,13 @@ def compare_func(**kwargs):
 ##############################
 #   Create Tasks
 ##############################
-task_ingestion = PythonOperator(
-    task_id='ingestion_data',
-    python_callable=ingestion_data,
-    provide_context=True,
-    op_kwargs={'config_data':config_data,
-               'catalog_data':catalog_data},
-    dag=dag)
+# task_ingestion = PythonOperator(
+#     task_id='ingestion_data',
+#     python_callable=ingestion_data,
+#     provide_context=True,
+#     op_kwargs={'config_data':config_data,
+#                'catalog_data':catalog_data},
+#     dag=dag)
 
 task_prep_data = PythonOperator(
     task_id='prep_data',
