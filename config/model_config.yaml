@@ -3,11 +3,19 @@ experiment_name: Test_model
 models:
   RandomForest:
     class: RandomForestClassifier
-    params: {}
+    params:
+      max_depth: 20
+      n_estimators: 15
 
   Tree:
     class: DecisionTreeClassifier
     params: { }
+
+  Testes_novos:
+    class: RandomForestClassifier
+    params:
+      max_depth: 10
+      n_estimators: 15
 
   naive:
     class: GaussianNB

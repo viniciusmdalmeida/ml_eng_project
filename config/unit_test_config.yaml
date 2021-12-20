@@ -1,2 +1,4 @@
-output: 
-  path: $PROJECT_PATH/data/unit_test/unit_test.json
+  table1:
+  - null_percent:
+      - max_null: 0.3
+

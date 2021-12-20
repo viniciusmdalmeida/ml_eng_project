@@ -48,7 +48,9 @@ def save_mlflow(model,result,config_model,model_name):
     for column in result:
         mlflow.log_metric(column,result[column])
     mlflow.set_tag('type',model.__class__.__name__)
-    print(sys.path)
-    mlflow.sklearn.save_model(model,f"{data_path}/model/{str(model_id)}")
-    mlflow.sklearn.log_model(model,f"{data_path}/model/{str(model_id)}")
+    model_path = f"{project_path + data_path}/model/{model_name}"
+    if not os.path.exists(model_path):
+        os.mkdir(model_path)
+    mlflow.sklearn.save_model(model,f"{model_path}/{str(model_id)}")
+    #mlflow.sklearn.log_model(model,f"{project_path + data_path}/logs/models")
     mlflow.end_run()    

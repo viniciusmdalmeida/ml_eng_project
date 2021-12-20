@@ -1,0 +1,15 @@
+artifact_uri: /home/vinicius/Documents/Projetos/ml_eng_project/data/mlruns/0/6080c96bdd22452598b4c874dcca5b02/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 6080c96bdd22452598b4c874dcca5b02
+run_uuid: 6080c96bdd22452598b4c874dcca5b02
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1638305725028
+status: 1
+tags: []
+user_id: vinicius

@@ -1,0 +1,126 @@
+[[34m2021-11-30 17:21:55,445[0m] {[34mscheduler_job.py:[0m1346} INFO[0m - Starting the scheduler[0m
+[[34m2021-11-30 17:21:55,446[0m] {[34mscheduler_job.py:[0m1354} INFO[0m - Running execute loop for -1 seconds[0m
+[[34m2021-11-30 17:21:55,447[0m] {[34mscheduler_job.py:[0m1355} INFO[0m - Processing each file at most -1 times[0m
+[[34m2021-11-30 17:21:55,447[0m] {[34mscheduler_job.py:[0m1358} INFO[0m - Searching for files in [1m/home/vinicius/Documents/Projetos/ml_eng_project/config/airflow/dags[0m[0m
+[[34m2021-11-30 17:21:55,449[0m] {[34mscheduler_job.py:[0m1360} INFO[0m - There are 1 files in [1m/home/vinicius/Documents/Projetos/ml_eng_project/config/airflow/dags[0m[0m
+[[34m2021-11-30 17:21:55,449[0m] {[34mscheduler_job.py:[0m1411} INFO[0m - Resetting orphaned tasks for active dag runs[0m
+[[34m2021-11-30 17:21:55,465[0m] {[34mdag_processing.py:[0m556} INFO[0m - Launched DagFileProcessorManager with pid: 11643[0m
+[[34m2021-11-30 17:21:55,471[0m] {[34msettings.py:[0m54} INFO[0m - Configured default timezone <Timezone [UTC]>[0m
+[2021-12-01 20:02:36,106] {scheduler_job.py:225} WARNING - Killing PID 20905
+[2021-12-01 20:02:36,228] {scheduler_job.py:225} WARNING - Killing PID 20905
+[[34m2021-12-01 20:03:01,587[0m] {[34mbase_job.py:[0m205} ERROR[0m - [1mSchedulerJob[0m heartbeat got an exception[0m
+[31mTraceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 817, in _checkout
+    raise exc.InvalidatePoolError()
+sqlalchemy.exc.InvalidatePoolError: ()
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 847, in _checkout
+    fairy._connection_record._checkin_failed(err)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 843, in _checkout
+    fairy._connection_record.get_connection()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 610, in get_connection
+    self.__connect()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/airflow/jobs/base_job.py", line 172, in heartbeat
+    session.merge(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2171, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2244, in _merge
+    merged = self.query(mapper.class_).get(key[1])
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 1018, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 1135, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3490, in one
+    ret = self.one_or_none()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3459, in one_or_none
+    ret = list(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3557, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3572, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3550, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1145, in connection
+    execution_options=execution_options,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1151, in _connection_for_bind
+    engine, execution_options
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 433, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2302, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 364, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 847, in _checkout
+    fairy._connection_record._checkin_failed(err)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 843, in _checkout
+    fairy._connection_record.get_connection()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 610, in get_connection
+    self.__connect()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)[0m

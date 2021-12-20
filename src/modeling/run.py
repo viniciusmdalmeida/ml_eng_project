@@ -39,5 +39,6 @@ def run_model(config_model, catalog_data, model_name, config_data, train_index, 
     if type(save_dict['save_func']) == str:
         save_dict['save_func'] = [save_dict['save_func']]
     for func_name in save_dict['save_func']:
+        print(f"Save model {model_name} with function {func_name}")
         save_func = eval(func_name)
         save_func(model,result,config_model,model_name) 

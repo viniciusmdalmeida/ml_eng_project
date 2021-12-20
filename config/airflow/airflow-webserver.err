@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_common.py", line 447, in wrapper
+    ret = self._cache[fun]
+AttributeError: _cache
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_pslinux.py", line 1576, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_common.py", line 450, in wrapper
+    return fun(self)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_pslinux.py", line 1618, in _parse_stat_file
+    with open_binary("%s/%s/stat" % (self._procfs_path, self.pid)) as f:
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_common.py", line 711, in open_binary
+    return open(fname, "rb", **kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/14546/stat'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/__init__.py", line 354, in _init
+    self.create_time()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/__init__.py", line 710, in create_time
+    self._create_time = self._proc.create_time()
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_pslinux.py", line 1576, in wrapper
+    return fun(self, *args, **kwargs)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_pslinux.py", line 1788, in create_time
+    ctime = float(self._parse_stat_file()['create_time'])
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/_pslinux.py", line 1583, in wrapper
+    raise NoSuchProcess(self.pid, self._name)
+psutil.NoSuchProcess: psutil.NoSuchProcess process no longer exists (pid=14546)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/bin/airflow", line 37, in <module>
+    args.func(args)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/airflow/utils/cli.py", line 75, in wrapper
+    return f(*args, **kwargs)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/airflow/bin/cli.py", line 990, in webserver
+    gunicorn_master_proc = psutil.Process(gunicorn_master_proc_pid)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/__init__.py", line 326, in __init__
+    self._init(pid)
+  File "/home/vinicius/Documents/Projetos/ml_eng_project/env/lib/python3.6/site-packages/psutil/__init__.py", line 367, in _init
+    raise NoSuchProcess(pid, None, msg)
+psutil.NoSuchProcess: psutil.NoSuchProcess no process found with pid 14546
