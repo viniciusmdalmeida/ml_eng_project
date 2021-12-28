@@ -8,6 +8,7 @@
 
 2. **Install Libs**
     
+   $ sudo apt install postgresql postgresql-contrib
    $ pip install -r requiremnts.txt
 
 
